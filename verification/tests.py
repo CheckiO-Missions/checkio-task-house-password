@@ -57,6 +57,22 @@ TESTS = {
             "input": "HZeLrcRR3NU5KprAybp",
             "answer": True
         },
+        {
+            "input": "aaaaaaaaaa1A",
+            "answer": True
+        },
+        {
+            "input": "aaaaaaaaa1Za",
+            "answer": True
+        },
+        {
+            "input": "aaaaaaaaa9Aa",
+            "answer": True
+        },
+        {
+            "input": "AAAAAAAAA1zA",
+            "answer": True
+        },
     ],
     "Extra": [
 
