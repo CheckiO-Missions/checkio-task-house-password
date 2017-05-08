@@ -21,6 +21,5 @@ api.add_listener(
         cover_code={
             "python-27": cover,
             "python-3": cover,
-            "js-node": cover,
         }
     ).on_ready)
