@@ -1,5 +1,6 @@
-<img class="for_info_only" title="ruler" src="{{MEDIA}}house_password_v1_400.png" alt="ruler"
-     style="width: 200px;float: right"/>
+<div class="for_info_only half" style="text-align: center">
+    <img src="{{MEDIA}}house_password_v1_400.png" style="max-height: 400px">
+</div>
 
 <p>
     István és Zsófia meg szoktak feledkezni a biztonságról és egyszerű jelszavakat használnak mindenhová. 
@@ -20,12 +21,24 @@
 <p class="for_info_only">
 <strong>Example:</strong>
 
-<textarea data-code="python">checkio('A1213pokl') == False
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: python">housePassword('A1213pokl') == false
+housePassword('bAse730onE') == true
+housePassword('asasasasasasasaas') == false
+housePassword('QWERTYqwerty') == false
+housePassword('123456123456') == false
+housePassword('QwErTy911poqqqq') == true
+</pre>
+{% else %}
+<pre class="brush: python">checkio('A1213pokl') == False
 checkio('bAse730onE') == True
 checkio('asasasasasasasaas') == False
 checkio('QWERTYqwerty') == False
 checkio('123456123456') == False
-checkio('QwErTy911poqqqq') == True</textarea>
+checkio('QwErTy911poqqqq') == True
+</pre>
+{% endif %}
+
 </p>
 <br>
 <p class="for_info_only">
