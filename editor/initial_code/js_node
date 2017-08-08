@@ -13,4 +13,5 @@ if (!global.is_checking) {
     assert.equal(housePassword("QWERTYqwerty"), false, "4th example");
     assert.equal(housePassword("123456123456"), false, "5th example");
     assert.equal(housePassword("QwErTy911poqqqq"), true, "6th example");
+    console.log("Coding complete? Click 'Check' to review your tests and earn cool rewards!");
 }
