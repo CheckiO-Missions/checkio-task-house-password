@@ -1,7 +1,7 @@
 ﻿<img class="for_info_only half" src="{{MEDIA}}house_password_v1_400.png" style="max-height: 400px; float: left">
 
 <p>
-    斯蒂芬和索菲亚对于一切都使用简单的密码，忘记了安全性。请你帮助尼古拉开发一个密码安全检查模块。如果密码的长度大于或等于10个符号，至少有一个数字，一个大写字母和一个小写字母，该密码将被视为足够强大。密码只包含ASCII拉丁字母或数字。
+    斯蒂芬和索菲亚对于一切都使用简单的密码，忘记了安全性。请你帮助尼古拉开发一个密码安全检查模块。如果密码的长度大于或等于10个字符，且其中至少有一个数字、一个大写字母和一个小写字母，该密码将被视为足够强大。密码只包含ASCII拉丁字母或数字。
 </p>
 
 <p>
@@ -12,32 +12,31 @@
 </p>
 
 <p class="for_info_only">
-<strong>范例:</strong>
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: python">housePassword('A1213pokl') == false
+    <strong>范例: </strong>
+    {% if interpreter.slug == "js-node" %}
+    <pre class="brush: python">housePassword('A1213pokl') == false
 housePassword('bAse730onE') == true
 housePassword('asasasasasasasaas') == false
 housePassword('QWERTYqwerty') == false
 housePassword('123456123456') == false
 housePassword('QwErTy911poqqqq') == true
-</pre>
-{% else %}
-<pre class="brush: python">checkio('A1213pokl') == False
+</pre> {% else %}
+    <pre class="brush: python">checkio('A1213pokl') == False
 checkio('bAse730onE') == True
 checkio('asasasasasasasaas') == False
 checkio('QWERTYqwerty') == False
 checkio('123456123456') == False
 checkio('QwErTy911poqqqq') == True
-</pre>
-{% endif %}
+</pre> {% endif %}
 </p>
 
 <br>
 <p class="for_info_only">
-    <strong>如何使用：</strong>
+    <strong>如何使用: </strong>
     如果你担心你的应用或服务的安全性，您可以检查用户密码的复杂性。你可以使用这些技巧要求你的用户的密码符合多个条件（标点符号或unicode）。
 </p>
 
-<p><strong>前提:</strong>:<br>
-    re.match("[a-zA-Z0-9]+", password)<br>
-    0 &lt; len(password) &le; 64
+<p>
+    <strong>前提:</strong>
+    <br> re.match("[a-zA-Z0-9]+", password)
+    <br> 0 &lt; len(password) &le; 64
