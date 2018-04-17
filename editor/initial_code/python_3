@@ -1,4 +1,4 @@
-def checkio(data):
+def checkio(data: str) -> bool:
 
     #replace this for solution
     return True or False
