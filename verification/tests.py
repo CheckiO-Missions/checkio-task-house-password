@@ -10,168 +10,150 @@ Each test is dict with
 TESTS = {
     "Basics": [
         {
-            "input": "ULFFunH8ni",
+            "input": ["ULFFunH8ni"],
             "answer": True
         },
         {
-            "input": "aaaaaaaaaaaaaaaaaaaaa",
+            "input": ["aaaaaaaaaaaaaaaaaaaaa"],
             "answer": False
         },
         {
-            "input": "aA1",
+            "input": ["aA1"],
             "answer": False
         },
         {
-            "input": "awzbdzkfz",
+            "input": ["awzbdzkfz"],
             "answer": False
         },
         {
-            "input": "RCAGOSHTTS",
+            "input": ["RCAGOSHTTS"],
             "answer": False
         },
         {
-            "input": "6691219721",
+            "input": ["6691219721"],
             "answer": False
         },
         {
-            "input": "PVlppfwrT",
+            "input": ["PVlppfwrT"],
             "answer": False
         },
         {
-            "input": "45ae5lkgz",
+            "input": ["45ae5lkgz"],
             "answer": False
         },
         {
-            "input": "1cmuPF1Ycz",
+            "input": ["1cmuPF1Ycz"],
             "answer": True
         },
         {
-            "input": "Pv4HdnUNb",
+            "input": ["Pv4HdnUNb"],
             "answer": False
         },
         {
-            "input": "jRNfXg6CdM15SLChALq",
+            "input": ["jRNfXg6CdM15SLChALq"],
             "answer": True
         },
         {
-            "input": "HZeLrcRR3NU5KprAybp",
+            "input": ["HZeLrcRR3NU5KprAybp"],
             "answer": True
         },
         {
-            "input": "aaaaaaaaaa1A",
+            "input": ["aaaaaaaaaa1A"],
             "answer": True
         },
         {
-            "input": "aaaaaaaaa1Za",
+            "input": ["aaaaaaaaa1Za"],
             "answer": True
         },
         {
-            "input": "aaaaaaaaa9Aa",
+            "input": ["aaaaaaaaa9Aa"],
             "answer": True
         },
         {
-            "input": "AAAAAAAAA1zA",
+            "input": ["AAAAAAAAA1zA"],
             "answer": True
         },
     ],
     "Extra": [
-
         {
-            "input": "1",
-            "answer": False
-        },
-
-        {
-            "input": "vcugdgywnlj",
+            "input": ["1"],
             "answer": False
         },
         {
-            "input": "abcdef",
+            "input": ["vcugdgywnlj"],
             "answer": False
         },
         {
-            "input": "ABCDEF",
+            "input": ["abcdef"],
             "answer": False
         },
         {
-            "input": "HJKKJDSHJKHDKWJWDW",
+            "input": ["ABCDEF"],
             "answer": False
         },
         {
-            "input": "123456",
+            "input": ["HJKKJDSHJKHDKWJWDW"],
             "answer": False
         },
         {
-            "input": "123456789012",
+            "input": ["123456"],
             "answer": False
         },
         {
-            "input": "fsDSkjSD",
+            "input": ["123456789012"],
             "answer": False
         },
         {
-            "input": "fsDSkjSDDSJhjhjd",
+            "input": ["fsDSkjSD"],
             "answer": False
         },
         {
-            "input": "gfh123",
+            "input": ["fsDSkjSDDSJhjhjd"],
             "answer": False
         },
         {
-            "input": "erer798rew9rew9r7ew987rw",
+            "input": ["gfh123"],
             "answer": False
         },
         {
-            "input": "DHJK8768D",
+            "input": ["erer798rew9rew9r7ew987rw"],
             "answer": False
         },
         {
-            "input": "DHJK87DSKJHWW68D",
+            "input": ["DHJK8768D"],
             "answer": False
         },
         {
-            "input": "Fa11con77",
+            "input": ["DHJK87DSKJHWW68D"],
             "answer": False
         },
         {
-            "input": "Fa11con77YES",
+            "input": ["Fa11con77"],
+            "answer": False
+        },
+        {
+            "input": ["Fa11con77YES"],
             "answer": True
         },
         {
-            "input": "Fa11con777",
+            "input": ["Fa11con777"],
             "answer": True
         },
         {
-            "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaSSSSSSSSSSSSSSSSSSSSSSSSS111111111111",
-            "answer": True
-        },
-
-        {
-            "input": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            "input": ["aaaaaaaaaaaaaaaaaaaaaaaaaaSSSSSSSSSSSSSSSSSSSSSSSSS111111111111"],
             "answer": True
         },
         {
-            "input": "9876543210ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba",
+            "input": ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"],
             "answer": True
         },
         {
-            "input": "IAKxnvZokrsWP1S0NCfJq4pti9Q6c8gXmB2alzuwUVRbD73OGE5HjMTFYLyhed",
+            "input": ["9876543210ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba"],
             "answer": True
         },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        {
+            "input": ["IAKxnvZokrsWP1S0NCfJq4pti9Q6c8gXmB2alzuwUVRbD73OGE5HjMTFYLyhed"],
+            "answer": True
+        },
     ]
 }

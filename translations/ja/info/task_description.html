@@ -13,23 +13,7 @@
 
 <p class="for_info_only">
 <strong>例:</strong>
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: python">housePassword('A1213pokl') == false
-housePassword('bAse730onE') == true
-housePassword('asasasasasasasaas') == false
-housePassword('QWERTYqwerty') == false
-housePassword('123456123456') == false
-housePassword('QwErTy911poqqqq') == true
-</pre>
-{% else %}
-<pre class="brush: python">checkio('A1213pokl') == False
-checkio('bAse730onE') == True
-checkio('asasasasasasasaas') == False
-checkio('QWERTYqwerty') == False
-checkio('123456123456') == False
-checkio('QwErTy911poqqqq') == True
-</pre>
-{% endif %}
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </p>
 
 <br>
