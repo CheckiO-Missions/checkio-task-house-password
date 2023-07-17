@@ -1,0 +1,29 @@
+<img class="for_info_only half" src="{{MEDIA}}house_password_v1_400.png" style="max-height: 400px; float: left">
+
+<p style="text-align: justify;">
+    Stephan i Sophia zapominają o bezpieczeństwie i używają prostych haseł do wszystkiego.
+    Proszę pomóc Nikoli opracować moduł sprawdzania bezpieczeństwa haseł. Hasło zostanie uznane za wystarczająco silne, jeśli jego długość jest większa lub równa 10 symbolom, ma co najmniej jedną cyfrę, a także zawiera jedną wielką i jedną małą literę. Hasło zawiera tylko łacińskie litery lub cyfry ASCII.
+</p>
+
+<p><strong>Dane wejściowe:</strong> Hasło jako ciąg znaków <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+<p><strong>Wyjście:</strong> Czy hasło jest bezpieczne czy nie jako wartość logiczna <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
+
+<p class="for_info_only">
+<strong>Przykłady:</strong>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</p>
+
+<br>
+<p class="for_info_only">
+   <strong>Sposób użycia:</strong>
+    Jeśli martwią się Państwo o bezpieczeństwo swojej aplikacji lub usługi, można sprawdzić hasła użytkowników pod kątem złożoności. Można użyć tych umiejętności, aby wymagać, aby hasła użytkowników spełniały więcej warunków (znaki interpunkcyjne lub unicode).
+</p>
+
+<p>
+    <strong>Warunki wstępne:</strong>
+    <ul>
+        <li>re.match("[a-zA-Z0-9]+", password);</li>
+        <li>0 &lt; len(password) &le; 64.</li>
+    </ul>
+</p>
+    
