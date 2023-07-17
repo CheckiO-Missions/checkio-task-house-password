@@ -1,31 +1,29 @@
 <img class="for_info_only half" src="{{MEDIA}}house_password_v1_400.png" style="max-height: 400px; float: left">
 
-<p>
-    Stephan et Sophia ont oublié la sécurité et utilisent des mots de passes simples pour tout.
-    Aide Nikola à développer un module de sécurité de mot de passes.
-    Le mot de passe est considéré comme fort si sa longueur est supérieur ou égale à 10 symboles,
-    il a au moins un chiffre, et doit contenir au moins une lettre majuscule et une lettre minuscule.
-    Le mot de passe contient uniquement des lettres latines ASCII ou des chiffres.
+<p style="text-align: justify;">
+    Stephan et Sophia oublient la sécurité et utilisent des mots de passe simples pour tout.
+    Aidez Nikola à développer un module de vérification de la sécurité des mots de passe. Le mot de passe sera considéré comme suffisamment fort si sa longueur est supérieure ou égale à 10 symboles, s'il comporte au moins un chiffre et s'il contient une lettre majuscule et une lettre minuscule. Le mot de passe ne contient que des lettres ou des chiffres latins ASCII.
 </p>
 
-<p><strong>Saisie: </strong>Un mot de passe est une string.</p>
-<p><strong>Sortie: </strong> La sortie qui indique si le mot de passe est sécurisé ou non se fera sous forme booléenne ou sous une forme
-  qui peut être convertie et utilisée comme un booléen. Dans le résultat vous verrez le résultat converti.</p>
+<p><strong>Entrée:</strong> Un mot de passe sous forme de chaîne <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+<p><strong>Sortie:</strong> Le mot de passe est-il sûr ou non sous la forme d'une valeur logique? <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
 
 <p class="for_info_only">
-<strong>Examples:</strong>
+<strong>Exemples:</strong>
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </p>
 
 <br>
 <p class="for_info_only">
-    <strong>Comment cela s'utilise: </strong>
-    Si vous êtes inquiet de la sécurité de votre application ou service, vous pouvez vérifier que les mots de passe 
-    des utilisateurs sont assez complexes. 
-    Vous pouvez utiliser ces compétences pour demander à vos utilisateurs qu'ils aient des mots passe 
-    qui on une forme spécifique (ponctuation ou unicode).
+   <strong>Comment il est utilisé:</strong>
+    Si vous êtes préoccupé par la sécurité de votre application ou service, vous pouvez vérifier la complexité des mots de passe de vos utilisateurs. Vous pouvez utiliser ces compétences pour exiger que les mots de passe de vos utilisateurs remplissent plus de conditions (ponctuations ou unicode).
 </p>
 
-<p><strong>Precondition</strong>:<br>
-    re.match("[a-zA-Z0-9]+", password)<br>
-    0 &lt; len(password) &le; 64
+<p>
+    <strong>Conditions préalables:</strong>
+    <ul>
+        <li>re.match("[a-zA-Z0-9]+", password);</li>
+        <li>0 &lt; len(password) &le; 64.</li>
+    </ul>
+</p>
+    
