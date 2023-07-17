@@ -1,0 +1,179 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        <p>
+            Catch an idea 💡! Declare logic flags for upper, lower letters and a digit. Iterate over the given string and change respective flag to <b class="code">True</b> if an appropriate character appears. If all flags become <b class="code">True</b>, your function must return <b class="code">True</b>, otherwise - <b class="code">False</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, what should I start from?
+    </div>
+    <div class="answer">
+        <p>
+            According to the description, the password must be longer then 9 characters. Check this with <a target="_blank" href="https://www.w3schools.com/python/python_conditions.asp">if</a> statement and make further checking with longer strings. For other ones you may immediately return <b class="code">False</b>.
+        </p>
+        <pre class="brush: python">
+if len(data) > 9:
+    ...
+
+return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What should I do next?
+    </div>
+    <div class="answer">
+        <p>
+            Create logic flags as variables <b class="code">u</b> for upper case letters, <b class="code">l</b> for lower case ones and <b class="code">d</b> for digits with initial values of <b class="code">False</b> since you don't check any characters yet.
+        </p>
+        <pre class="brush: python">
+u = l = d = False
+        </pre>
+        <p>
+            Now iterate over the given string using <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a> loop.
+        </p>
+        <pre class="brush: python">
+for char in data:
+    ...   
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Help me to check each character.
+    </div>
+    <div class="answer">
+        <p>
+            Handle all checking cases using <a target="_blank" href="https://www.w3schools.com/python/gloss_python_elif.asp">if/elif</a> statement. Let's make a first checking for upper case letters. Since one such letter in the password is enough, you need to check characters for this case only if <b class="code">u</b> value is still <b class="code">False</b>. Now check if a current <b class="code">char</b> is in upper case with <a target="_blank" href="https://www.w3schools.com/python/ref_string_isupper.asp">str.isupper()</a> method.
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper():
+    ...
+elif ...:
+    ...
+elif ...:
+    ...
+        </pre>
+        <p>
+            In this case just update the value of <b class="code">u</b> with <b class="code">True</b>, since you have found an upper case letter in the given string. If the full expression is short enough, you may write it in one line.
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper(): u = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        How to check for lower case letter?
+    </div>
+    <div class="answer">
+        <p>
+            The frame is the same, but you need to use <a target="_blank" href="https://www.w3schools.com/python/ref_string_islower.asp">str.islower()</a> method instead. 
+        </p>
+        <pre class="brush: python">
+elif not l and char.islower(): l = True
+        </pre>
+        <p>
+            The same is for checking a character of being a digit.
+        </p>
+        <pre class="brush: python">
+elif not d and char.isdigit(): d = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        It's clear. How to check if the whole password is safe?
+    </div>
+    <div class="answer">
+        <p>
+            After a character processing you need to check if all your flags already have values <b class="code">True</b>. If so, no need to check next characters - a password is safe.
+        </p>
+        <pre class="brush: python">
+if u and l and d: return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So, how my final solution should look like?
+    </div>
+    <div class="answer">
+        <p>
+            You just need to join all previous hints and wrap your code into function expression. Using type hints for input and output data are highly recommended.
+        </p>
+        <p>Here is the whole solution:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data) > 9:
+        u = l = d = False
+        for char in data:
+            if not u and char.isupper(): u = True
+            elif not l and char.islower(): l = True
+            elif not d and char.isdigit(): d = True
+            if u and l and d: return True
+
+    return False 
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            Using regular expression module check each pattern for being present in the give string. These logic values are used as argument of <b class="code">all()</b> function.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def checkio(d: str) -> bool:
+
+    return len(d) > 9 and all(re.search(p, d) for p in ('[A-Z]', '\d', '[a-z]'))
+        </pre>
+        </div>
+        <p>
+            Convert the string into upper case and lower case and check if the string remains the same - if so, there no (respective) lower case letter and upper case letter in it. 
+            Finally, check if there is any digit in the string.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data) < 10:
+        return False
+    if data.upper() == data:
+        return False
+    if data.lower() == data:
+        return False
+        
+    return any(c.isdigit() for c in data)
+        </pre>
+        </div>
+        <p>Click <b>Best Solutions</b> at mission menu and see a lot of other interesting solutions!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to hear it 👍!
+    </div>
+</div>
+</body>

@@ -1,16 +1,12 @@
 <img class="for_info_only half" src="{{MEDIA}}house_password_v1_400.png" style="max-height: 400px; float: left">
 
-<p>
+<p style="text-align: justify;">
     Stephan and Sophia forget about security and use simple passwords for everything.
-    Help Nikola develop a password security check module.
-    The password will be considered strong enough if its length is greater than or equal to 10 symbols,
-    it has at least one digit, as well as containing one uppercase letter and one lowercase letter in it.
-    The password contains only ASCII latin letters or digits.
+    Help Nikola develop a password security check module. The password will be considered strong enough if its length is greater than or equal to 10 symbols, it has at least one digit, as well as containing one uppercase letter and one lowercase letter in it. The password contains only ASCII latin letters or digits.
 </p>
 
-<p><strong>Input:</strong>A password as a string.</p>
-<p><strong>Output:</strong> Is the password safe or not as a boolean or any data type that can be
-    converted and processed as a boolean. In the results you will see the converted results.</p>
+<p><strong>Input:</strong> A password as a string <span translate="no">(str{% if is_js %}ing{% endif %})</span>.</p>
+<p><strong>Output:</strong> Is the password safe or not as a logic value <span translate="no">(bool{% if is_js %}ean{% endif %})</span>.</p>
 
 <p class="for_info_only">
 <strong>Examples:</strong>
@@ -20,10 +16,14 @@
 <br>
 <p class="for_info_only">
     <strong>How it is used:</strong>
-    If you are worried about the security of your app or service, you can check your users' passwords for complexity.
-    You can use these skills to require that your users passwords meet more conditions (punctuations or unicode).
+    If you are worried about the security of your app or service, you can check your users' passwords for complexity. You can use these skills to require that your users passwords meet more conditions (punctuations or unicode).
 </p>
 
-<p><strong>Precondition</strong>:<br>
-    re.match("[a-zA-Z0-9]+", password)<br>
-    0 &lt; len(password) &le; 64
+<p>
+    <strong>Preconditions:</strong>
+    <ul>
+        <li>re.match("[a-zA-Z0-9]+", password);</li>
+        <li>0 &lt; len(password) &le; 64.</li>
+    </ul>
+</p>
+    
