@@ -1,0 +1,179 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę złapać pomysł 💡! Proszę zadeklarować flagi logiczne dla dużych i małych liter oraz cyfry. Iteruj po podanym ciągu i zmień odpowiednią flagę na <b class="code">True</b> jeśli pojawi się odpowiedni znak. Jeśli wszystkie flagi mają wartość <b class="code">True</b>, funkcja musi zwrócić <b class="code">True</b>, w przeciwnym razie - <b class="code">False</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, od czego powinienem zacząć?
+    </div>
+    <div class="answer">
+        <p>
+            Zgodnie z opisem, hasło musi być dłuższe niż 9 znaków. Proszę to sprawdzić za pomocą <a target="_blank" href="https://www.w3schools.com/python/python_conditions.asp">if</a> i dalej sprawdzać dłuższe ciągi znaków. Dla innych może Pan od razu zwrócić <b class="code">False</b>.
+        </p>
+        <pre class="brush: python">
+if len(data)> 9:
+    ...
+
+return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Co powinienem zrobić dalej?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę utworzyć flagi logiczne jako zmienne <b class="code">u</b> dla dużych liter, <b class="code">l</b> dla małych liter i <b class="code">d</b> dla cyfr z wartościami początkowymi <b class="code">False</b>, ponieważ nie sprawdza Pan jeszcze żadnych znaków.
+        </p>
+        <pre class="brush: python">
+u = l = d = False
+        </pre>
+        <p>
+            Teraz proszę wykonać iterację po podanym ciągu znaków za pomocą pętli <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a>.
+        </p>
+        <pre class="brush: python">
+for char in data:
+    ...   
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę mi pomóc sprawdzić każdy znak.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę obsłużyć wszystkie sprawdzane przypadki za pomocą instrukcji <a target="_blank" href="https://www.w3schools.com/python/gloss_python_elif.asp">if/elif</a>. Proszę najpierw sprawdzić wielkie litery. Ponieważ jedna taka litera w haśle jest wystarczająca, należy sprawdzić znaki dla tego przypadku tylko wtedy, gdy wartość <b class="code">u</b> jest nadal <b class="code">False</b>. Teraz proszę sprawdzić, czy bieżąca wartość <b class="code">char</b> jest wielką literą za pomocą metody <a target="_blank" href="https://www.w3schools.com/python/ref_string_isupper.asp">str.isupper()</a>.
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper():
+    ...
+elif ...:
+    ...
+elif ...:
+    ...
+        </pre>
+        <p>
+            W tym przypadku wystarczy zaktualizować wartość <b class="code">u</b> za pomocą <b class="code">True</b>, ponieważ znaleziono wielką literę w podanym ciągu znaków. Jeśli pełne wyrażenie jest wystarczająco krótkie, można zapisać je w jednym wierszu.
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper(): u = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak sprawdzić małe litery?
+    </div>
+    <div class="answer">
+        <p>
+            Ramka jest taka sama, ale zamiast tego należy użyć metody <a target="_blank" href="https://www.w3schools.com/python/ref_string_islower.asp">str.islower()</a>. 
+        </p>
+        <pre class="brush: python">
+elif not l and char.islower(): l = True
+        </pre>
+        <p>
+            To samo dotyczy sprawdzania, czy znak jest cyfrą.
+        </p>
+        <pre class="brush: python">
+elif not d and char.isdigit(): d = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        To jasne. Jak sprawdzić, czy całe hasło jest bezpieczne?
+    </div>
+    <div class="answer">
+        <p>
+            Po przetworzeniu znaków należy sprawdzić, czy wszystkie flagi mają już wartości <b class="code">True</b>. Jeśli tak, nie ma potrzeby sprawdzania kolejnych znaków - hasło jest bezpieczne.
+        </p>
+        <pre class="brush: python">
+if u and l and d: return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak więc powinno wyglądać moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy połączyć wszystkie poprzednie podpowiedzi i zawinąć kod w wyrażenie funkcyjne. Używanie podpowiedzi typu dla danych wejściowych i wyjściowych jest wysoce zalecane.
+        </p>
+        <p>Poniżej znajduje się całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data)> 9:
+        u = l = d = False
+        for char in data:
+            if not u and char.isupper(): u = True
+            elif not l and char.islower(): l = True
+            elif not d and char.isdigit(): d = True
+            if u and l and d: return True
+
+    return False 
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwą 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            Za pomocą modułu wyrażeń regularnych sprawdzamy każdy wzorzec pod kątem obecności w podanym ciągu znaków. Te wartości logiczne są używane jako argument funkcji <b class="code">all()</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def checkio(d: str) -> bool:
+
+    return len(d)> 9 and all(re.search(p, d) for p in ('[A-Z]', '\d', '[a-z]'))
+        </pre>
+        </div>
+        <p>
+            Proszę przekonwertować ciąg na małe i wielkie litery i sprawdzić, czy ciąg pozostaje taki sam - jeśli tak, to nie ma w nim (odpowiedniej) małej i wielkiej litery. 
+            Na koniec proszę sprawdzić, czy w ciągu występuje jakakolwiek cyfra.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data) < 10:
+        return False
+    if data.upper() == data:
+        return False
+    if data.lower() == data:
+        return False
+        
+    return any(c.isdigit() for c in data)
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!
+    </div>
+    <div class="answer">
+        Miło mi to słyszeć 👍!
+    </div>
+</div>
+</body>
