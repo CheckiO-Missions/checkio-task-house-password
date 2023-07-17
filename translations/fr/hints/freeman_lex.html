@@ -1,0 +1,179 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+    </div>
+    <div class="answer">
+        <p>
+            Trouvez une idée 💡! Déclarez des drapeaux logiques pour les lettres supérieures, inférieures et un chiffre. Interrogez la chaîne donnée et changez le drapeau respectif en <b class="code">True</b> si un caractère approprié apparaît. Si tous les drapeaux deviennent <b class="code">True</b>, votre fonction doit renvoyer <b class="code">True</b>, sinon <b class="code">False</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, par quoi dois-je commencer?
+    </div>
+    <div class="answer">
+        <p>
+            D'après la description, le mot de passe doit comporter plus de 9 caractères. Vérifiez-le avec l'instruction <a target="_blank" href="https://www.w3schools.com/python/python_conditions.asp">if</a> et faites d'autres vérifications avec des chaînes plus longues. Pour les autres, vous pouvez renvoyer immédiatement <b class="code">False</b>.
+        </p>
+        <pre class="brush: python">
+if len(data)> 9:
+    ...
+
+return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Que dois-je faire ensuite?
+    </div>
+    <div class="answer">
+        <p>
+            Créez des indicateurs logiques en tant que variables: <b class="code">u</b> pour les lettres majuscules, <b class="code">l</b> pour les lettres minuscules et <b class="code">d</b> pour les chiffres, avec des valeurs initiales de <b class="code">False</b> puisque vous ne vérifiez encore aucun caractère.
+        </p>
+        <pre class="brush: python">
+u = l = d = False
+        </pre>
+        <p>
+            Maintenant, itérez sur la chaîne donnée en utilisant la boucle <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a>.
+        </p>
+        <pre class="brush: python">
+for char in data:
+    ...   
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Aidez-moi à vérifier chaque caractère.
+    </div>
+    <div class="answer">
+        <p>
+            Traitez tous les cas de vérification à l'aide de l'instruction <a target="_blank" href="https://www.w3schools.com/python/gloss_python_elif.asp">if/elif</a>. Commençons par vérifier les lettres majuscules. Puisqu'une seule de ces lettres suffit dans le mot de passe, vous ne devez vérifier les caractères pour ce cas que si la valeur de <b class="code">u</b> est toujours <b class="code">False</b>. Vérifiez maintenant si une valeur courante de <b class="code">char</b> est en majuscules avec la méthode <a target="_blank" href="https://www.w3schools.com/python/ref_string_isupper.asp">str.isupper()</a>.
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper():
+    ...
+elif ...:
+    ...
+elif ...:
+    ...
+        </pre>
+        <p>
+            Dans ce cas, mettez à jour la valeur de <b class="code">u</b> avec <b class="code">True</b>, puisque vous avez trouvé une lettre majuscule dans la chaîne donnée. Si l'expression complète est suffisamment courte, vous pouvez l'écrire sur une seule ligne.
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper(): u = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Comment vérifier la présence d'une lettre minuscule?
+    </div>
+    <div class="answer">
+        <p>
+            Le cadre est le même, mais vous devez utiliser la méthode <a target="_blank" href="https://www.w3schools.com/python/ref_string_islower.asp">str.islower()</a> à la place. 
+        </p>
+        <pre class="brush: python">
+elif not l and char.islower(): l = True
+        </pre>
+        <p>
+            Il en va de même pour vérifier qu'un caractère est bien un chiffre.
+        </p>
+        <pre class="brush: python">
+elif not d and char.isdigit(): d = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        C'est clair. Comment vérifier si l'ensemble du mot de passe est sûr?
+    </div>
+    <div class="answer">
+        <p>
+            Après le traitement d'un caractère, vous devez vérifier si tous vos drapeaux ont déjà la valeur <b class="code">True</b>. Si c'est le cas, il n'est pas nécessaire de vérifier les caractères suivants - le mot de passe est sûr.
+        </p>
+        <pre class="brush: python">
+if u and l and d: return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Alors, à quoi devrait ressembler ma solution finale?
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit de combiner tous les indices précédents et d'envelopper votre code dans une expression de fonction. Il est fortement recommandé d'utiliser des indications de type pour les données d'entrée et de sortie.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data)> 9:
+        u = l = d = False
+        for char in data:
+            if not u and char.isupper(): u = True
+            elif not l and char.islower(): l = True
+            elif not d and char.isdigit(): d = True
+            if u and l and d: return True
+
+    return False 
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Montrez-moi d'autres solutions!<br />
+        parce que je veux être une vraie 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            À l'aide du module d'expression régulière, vérifiez la présence de chaque motif dans la chaîne donnée. Ces valeurs logiques sont utilisées comme argument de la fonction <b class="code">all()</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def checkio(d: str) -> bool:
+
+    return len(d)> 9 and all(re.search(p, d) for p in ('[A-Z]', '\d', '[a-z]'))
+        </pre>
+        </div>
+        <p>
+            Convertissez la chaîne en majuscules et en minuscules et vérifiez si la chaîne reste la même - si c'est le cas, elle ne contient aucune lettre minuscule ou majuscule (respectivement). 
+            Enfin, vérifiez si la chaîne contient un chiffre.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data) < 10:
+        return False
+    if data.upper() == data:
+        return False
+    if data.lower() == data:
+        return False
+        
+    return any(c.isdigit() for c in data)
+        </pre>
+        </div>
+        <p>Cliquez sur <b>Best Solutions</b> dans le menu mission et découvrez de nombreuses autres solutions intéressantes!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Merci beaucoup! Je comprends mieux maintenant! Tout fonctionne bien!
+    </div>
+    <div class="answer">
+        Heureux de l'apprendre 👍!
+    </div>
+</div>
+</body>
