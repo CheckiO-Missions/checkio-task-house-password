@@ -1,28 +1,29 @@
-﻿<img class="for_info_only half" src="{{MEDIA}}house_password_v1_400.png" style="max-height: 400px; float: left">
+<img class="for_info_only half" src="{{MEDIA}}house_password_v1_400.png" style="max-height: 400px; float: left">
 
-<p>
-    斯蒂芬和索菲亚对于一切都使用简单的密码，忘记了安全性。请你帮助尼古拉开发一个密码安全检查模块。如果密码的长度大于或等于10个字符，且其中至少有一个数字、一个大写字母和一个小写字母，该密码将被视为足够强大。密码只包含ASCII拉丁字母或数字。
+<p style="text-align: justify;">
+    Stephan和Sophia忘记了安全问题，使用简单的密码来处理所有事情。
+    帮助尼古拉开发一个密码安全检查模块。如果密码的长度大于或等于10个符号，至少有一位数字，并且包含一个大写字母和一个小写字母，那么密码将被认为足够强大。密码只包含ASCII拉丁字母或数字。
 </p>
 
-<p>
-    <strong>输入: </strong> 密码。
-</p>
-<p>
-    <strong>输出: </strong> 密码的安全与否，作为布尔值(bool)，或者任何可以转换和处理为布尔值的数据类型。你会在结果看到转换后的结果(True 或 False)。
-</p>
+<p><strong>输入</strong>密码字符串 <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+<p><strong>输出</strong>密码是否安全的逻辑值 <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
 
 <p class="for_info_only">
-    <strong>范例: </strong>
+<strong>举例说明</strong>
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </p>
 
 <br>
 <p class="for_info_only">
-    <strong>如何使用: </strong>
-    如果你担心你的应用或服务的安全性，您可以检查用户密码的复杂性。你可以使用这些技巧要求你的用户的密码符合多个条件（标点符号或unicode）。
+   <strong>如何使用：</strong>
+    如果您担心您的应用程序或服务的安全性，您可以检查用户密码的复杂性。您可以使用这些技能来要求您的用户密码满足更多条件（标点符号或unicode）。
 </p>
 
 <p>
-    <strong>前提:</strong>
-    <br> re.match("[a-zA-Z0-9]+", password)
-    <br> 0 &lt; len(password) &le; 64
+    <strong>前置条件：</strong>
+    <ul>
+        <li>re.match("[a-zA-Z0-9]+", password);</li>
+        <li>0 &lt; len(password) &le; 64.</li>
+    </ul>
+</p>
+    

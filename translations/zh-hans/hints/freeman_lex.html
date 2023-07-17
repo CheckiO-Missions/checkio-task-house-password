@@ -1,0 +1,179 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这项任务。
+    </div>
+    <div class="answer">
+        <p>
+            抓住一个想法💡！声明大写字母、小写字母和一个数字的逻辑标志。遍历给定的字符串，如果出现适当的字符，则将相应的标志更改为<b class="code">True</b> 。如果所有标志都变为<b class="code">True</b> ，您的函数必须返回<b class="code">True</b> ，否则 -<b class="code">False</b> 。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        好的，我应该从哪里开始呢？
+    </div>
+    <div class="answer">
+        <p>
+            根据说明，密码必须长于9个字符。使用<a target="_blank" href="https://www.w3schools.com/python/python_conditions.asp">if</a> 语句检查这一点，并使用更长的字符串进行进一步检查。对于其他字符串，您可以立即返回<b class="code">False</b> 。
+        </p>
+        <pre class="brush: python">
+if len(data)> 9:
+    ...
+
+return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        下一步我应该做什么？
+    </div>
+    <div class="answer">
+        <p>
+            创建逻辑标志变量<b class="code">u</b> 用于大写字母，<b class="code">l</b> 用于小写字母，<b class="code">d</b> 用于数字，初始值为<b class="code">False</b> ，因为您还没有检查任何字符。
+        </p>
+        <pre class="brush: python">
+u = l = d = False
+        </pre>
+        <p>
+            现在使用<a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a> 循环遍历给定的字符串。
+        </p>
+        <pre class="brush: python">
+for char in data:
+    ...   
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        帮助我检查每个字符。
+    </div>
+    <div class="answer">
+        <p>
+            使用<a target="_blank" href="https://www.w3schools.com/python/gloss_python_elif.asp">if/elif</a> 语句处理所有检查情况。首先检查大写字母。因为密码中一个这样的字母就足够了，所以只有当<b class="code">u</b> 值仍然是<b class="code">False</b> 时，才需要检查这种情况下的字符。现在使用<a target="_blank" href="https://www.w3schools.com/python/ref_string_isupper.asp">str.isupper()</a> 方法检查当前<b class="code">char</b> 是否为大写字母。
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper():
+    ...
+elif ...:
+    ...
+elif ...:
+    ...
+        </pre>
+        <p>
+            在这种情况下，只需用<b class="code">True</b> 更新<b class="code">u</b> 的值，因为您已经在给定的字符串中找到了一个大写字母。如果完整表达式足够短，您可以将其写在一行中。
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper(): u = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        如何检查小写字母？
+    </div>
+    <div class="answer">
+        <p>
+            框架是相同的，但您需要使用<a target="_blank" href="https://www.w3schools.com/python/ref_string_islower.asp">str.islower()</a> 方法。 
+        </p>
+        <pre class="brush: python">
+elif not l and char.islower(): l = True
+        </pre>
+        <p>
+            检查字符是否为数字的方法相同。
+        </p>
+        <pre class="brush: python">
+elif not d and char.isdigit(): d = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        这就很清楚了。如何检查整个密码是否安全？
+    </div>
+    <div class="answer">
+        <p>
+            在处理完一个字符后，您需要检查您的所有标志是否已经有值<b class="code">True</b> 。如果是，则无需检查下一个字符--密码是安全的。
+        </p>
+        <pre class="brush: python">
+if u and l and d: return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        那么，我的最终解决方案应该是怎样的呢？
+    </div>
+    <div class="answer">
+        <p>
+            您只需将之前所有的提示连接起来，并将代码封装为函数表达式。强烈建议对输入和输出数据使用类型提示。
+        </p>
+        <p>以下是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data)> 9:
+        u = l = d = False
+        for char in data:
+            if not u and char.isupper(): u = True
+            elif not l and char.islower(): l = True
+            elif not d and char.isdigit(): d = True
+            if u and l and d: return True
+
+    return False 
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        告诉我更多解决方案！<br />
+        因为我想成为一个真正的 🥇 Python Ninnjaa！
+    </div>
+    <div class="answer">
+        <p>当然，抓住它！</p>
+        <p>
+            使用正则表达式模块检查给定字符串中是否存在每个模式。这些逻辑值被用作<b class="code">all()</b> 函数的参数。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def checkio(d: str) -> bool:
+
+    return len(d)> 9 and all(re.search(p, d) for p in ('[A-Z]', '\d', '[a-z]'))
+        </pre>
+        </div>
+        <p>
+            将字符串转换为大写字母和小写字母，并检查字符串是否保持不变--如果保持不变，则说明字符串中没有（各自的）小写字母和大写字母。 
+            最后，检查字符串中是否有数字。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data) < 10:
+        return False
+    if data.upper() == data:
+        return False
+    if data.lower() == data:
+        return False
+        
+    return any(c.isdigit() for c in data)
+        </pre>
+        </div>
+        <p>点击任务菜单<b>Best Solutions</b> ，查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        谢谢！我现在知道并理解了更多！一切正常！
+    </div>
+    <div class="answer">
+        很高兴听到这个消息👍！
+    </div>
+</div>
+</body>
