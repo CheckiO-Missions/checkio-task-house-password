@@ -1,0 +1,179 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        <p>
+            Haben Sie eine Idee 💡! Deklarieren Sie Logikflags für Groß- und Kleinbuchstaben und eine Ziffer. Iterieren Sie über die angegebene Zeichenkette und ändern Sie das jeweilige Flag in <b class="code">True</b>, wenn ein entsprechendes Zeichen erscheint. Wenn alle Flags <b class="code">True</b> werden, muss Ihre Funktion <b class="code">True</b> zurückgeben, andernfalls - <b class="code">False</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, womit soll ich anfangen?
+    </div>
+    <div class="answer">
+        <p>
+            Laut der Beschreibung muss das Kennwort länger als 9 Zeichen sein. Prüfen Sie dies mit der Anweisung <a target="_blank" href="https://www.w3schools.com/python/python_conditions.asp">if</a> und führen Sie weitere Prüfungen mit längeren Zeichenfolgen durch. Bei anderen können Sie sofort <b class="code">False</b> zurückgeben.
+        </p>
+        <pre class="brush: python">
+if len(data)> 9:
+    ...
+
+return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Was sollte ich als nächstes tun?
+    </div>
+    <div class="answer">
+        <p>
+            Erstellen Sie Logikflags als Variablen <b class="code">u</b> für Großbuchstaben, <b class="code">l</b> für Kleinbuchstaben und <b class="code">d</b> für Ziffern mit dem Anfangswert <b class="code">False</b>, da Sie noch keine Zeichen prüfen.
+        </p>
+        <pre class="brush: python">
+u = l = d = False
+        </pre>
+        <p>
+            Iterieren Sie nun über die angegebene Zeichenkette mit der Schleife <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a>.
+        </p>
+        <pre class="brush: python">
+for char in data:
+    ...   
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Helfen Sie mir, jedes Zeichen zu überprüfen.
+    </div>
+    <div class="answer">
+        <p>
+            Behandeln Sie alle Prüffälle mit der Anweisung <a target="_blank" href="https://www.w3schools.com/python/gloss_python_elif.asp">if/elif</a>. Lassen Sie uns zunächst die Großbuchstaben prüfen. Da ein solcher Buchstabe im Kennwort ausreicht, müssen Sie die Zeichen nur dann auf diese Großschreibung prüfen, wenn der Wert <b class="code">u</b> noch <b class="code">False</b> ist. Prüfen Sie nun mit der Methode <a target="_blank" href="https://www.w3schools.com/python/ref_string_isupper.asp">str.isupper()</a>, ob eine aktuelle <b class="code">char</b> in Großbuchstaben vorliegt.
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper():
+    ...
+elif ...:
+    ...
+elif ...:
+    ...
+        </pre>
+        <p>
+            In diesem Fall aktualisieren Sie einfach den Wert von <b class="code">u</b> mit <b class="code">True</b>, da Sie einen Großbuchstaben in der angegebenen Zeichenfolge gefunden haben. Wenn der vollständige Ausdruck kurz genug ist, können Sie ihn in eine Zeile schreiben.
+        </p>
+        <pre class="brush: python">
+if not u and char.isupper(): u = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie prüft man auf Kleinbuchstaben?
+    </div>
+    <div class="answer">
+        <p>
+            Der Rahmen ist derselbe, aber Sie müssen stattdessen die Methode <a target="_blank" href="https://www.w3schools.com/python/ref_string_islower.asp">str.islower()</a> verwenden. 
+        </p>
+        <pre class="brush: python">
+elif not l and char.islower(): l = True
+        </pre>
+        <p>
+            Das Gleiche gilt für die Prüfung, ob ein Zeichen eine Ziffer ist.
+        </p>
+        <pre class="brush: python">
+elif not d and char.isdigit(): d = True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Das ist klar. Wie kann man prüfen, ob das gesamte Passwort sicher ist?
+    </div>
+    <div class="answer">
+        <p>
+            Nach der Verarbeitung eines Zeichens müssen Sie prüfen, ob alle Ihre Flaggen bereits den Wert <b class="code">True</b> haben. Wenn ja, brauchen Sie die nächsten Zeichen nicht zu prüfen - das Kennwort ist sicher.
+        </p>
+        <pre class="brush: python">
+if u and l and d: return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie sollte also meine endgültige Lösung aussehen?
+    </div>
+    <div class="answer">
+        <p>
+            Sie müssen nur alle vorherigen Hinweise zusammenführen und Ihren Code in einen Funktionsausdruck verpacken. Die Verwendung von Typ-Hinweisen für Eingabe- und Ausgabedaten wird dringend empfohlen.
+        </p>
+        <p>Hier ist die gesamte Lösung:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data)> 9:
+        u = l = d = False
+        for char in data:
+            if not u and char.isupper(): u = True
+            elif not l and char.islower(): l = True
+            elif not d and char.isdigit(): d = True
+            if u and l and d: return True
+
+    return False 
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Zeigen Sie mir mehr Lösungen!<br />
+        denn ich möchte ein echter 🥇 Python Ninnjaa sein!
+    </div>
+    <div class="answer">
+        <p>Klar, schnapp sie dir!</p>
+        <p>
+            Mit dem Modul für reguläre Ausdrücke überprüfen Sie jedes Muster auf sein Vorhandensein in der angegebenen Zeichenkette. Diese logischen Werte werden als Argument der Funktion <b class="code">all()</b> verwendet.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def checkio(d: str) -> bool:
+
+    return len(d)> 9 and all(re.search(p, d) for p in ('[A-Z]', '\d', '[a-z]'))
+        </pre>
+        </div>
+        <p>
+            Konvertieren Sie die Zeichenkette in Groß- und Kleinbuchstaben und prüfen Sie, ob die Zeichenkette gleich bleibt - wenn ja, gibt es keinen (entsprechenden) Kleinbuchstaben und keinen Großbuchstaben in ihr. 
+            Prüfen Sie schließlich, ob die Zeichenkette eine Ziffer enthält.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(data: str) -> bool:
+
+    if len(data) < 10:
+        return False
+    if data.upper() == data:
+        return False
+    if data.lower() == data:
+        return False
+        
+    return any(c.isdigit() for c in data)
+        </pre>
+        </div>
+        <p>Klicken Sie im Missionsmenü auf <b>Best Solutions</b> und sehen Sie sich viele weitere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!
+    </div>
+    <div class="answer">
+        Freut mich zu hören 👍!
+    </div>
+</div>
+</body>
