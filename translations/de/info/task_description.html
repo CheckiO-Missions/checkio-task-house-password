@@ -1,0 +1,29 @@
+<img class="for_info_only half" src="{{MEDIA}}house_password_v1_400.png" style="max-height: 400px; float: left">
+
+<p style="text-align: justify;">
+    Stephan und Sophia vergessen das Thema Sicherheit und verwenden einfache Passwörter für alles.
+    Helfen Sie Nikola, ein Modul zur Überprüfung der Sicherheit von Passwörtern zu entwickeln. Das Kennwort wird als sicher genug angesehen, wenn es mindestens 10 Zeichen lang ist, mindestens eine Ziffer enthält und einen Groß- und einen Kleinbuchstaben enthält. Das Kennwort enthält nur lateinische ASCII-Buchstaben oder Ziffern.
+</p>
+
+<p><strong>Eingabe:</strong> Ein Kennwort als Zeichenkette <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+<p><strong>Ausgabe:</strong> Ist das Passwort sicher oder nicht als logischer Wert <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
+
+<p class="for_info_only">
+<strong>Beispiele:</strong>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</p>
+
+<br>
+<p class="for_info_only">
+   <strong>Wie es verwendet wird:</strong>
+    Wenn Sie sich Sorgen um die Sicherheit Ihrer App oder Ihres Dienstes machen, können Sie die Passwörter Ihrer Benutzer auf Komplexität überprüfen. Sie können diese Fähigkeiten nutzen, um zu verlangen, dass die Passwörter Ihrer Benutzer mehr Bedingungen erfüllen (Zeichensetzung oder Unicode).
+</p>
+
+<p>
+    <strong>Vorbedingungen:</strong>
+    <ul>
+        <li>re.match("[a-zA-Z0-9]+", password);</li>
+        <li>0 &lt; len(passwort) &le; 64.</li>
+    </ul>
+</p>
+    
